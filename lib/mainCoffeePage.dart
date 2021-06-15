@@ -1,7 +1,9 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'details_page.dart';
+import 'main.dart';
 
 class mainCoffeePage extends StatefulWidget {
   @override
@@ -15,40 +17,43 @@ class _mainCoffeePageState extends State<mainCoffeePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
-        padding: EdgeInsets.only(left: 15.0),
+        //padding: EdgeInsets.only(left: 15.0),
         children: <Widget>[
           SizedBox(
             height: 50.0,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(
-                'Welcome, Nadia',
-                style: GoogleFonts.varela(
-                    fontSize: 30.0,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF473D3A)),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 15.0),
-                child: Container(
-                  height: 40.0,
-                  width: 40,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20.0),
-                      image: DecorationImage(
-                          image: AssetImage('assets/model.jpg'),
-                          fit: BoxFit.cover)),
+          Padding(
+            padding: EdgeInsets.only(left: 15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  'Welcome, Nadia',
+                  style: GoogleFonts.varela(
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF473D3A)),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsets.only(right: 15.0),
+                  child: Container(
+                    height: 40.0,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20.0),
+                        image: DecorationImage(
+                            image: AssetImage('assets/model.jpg'),
+                            fit: BoxFit.cover)),
+                  ),
+                ),
+              ],
+            ),
           ),
           SizedBox(
             height: 10.0,
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 45.0),
+            padding: const EdgeInsets.only(right: 45.0, left: 15.0),
             child: Container(
               child: Text(
                 'Let\'s select the best taste for your next coffee break!',
@@ -60,19 +65,22 @@ class _mainCoffeePageState extends State<mainCoffeePage> {
             ),
           ),
           SizedBox(height: 25.0),
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text('Taste of the week',
-                    style: GoogleFonts.varela(
-                        fontSize: 17.0, color: Color(0xFF473D3A))),
-                Padding(
-                  padding: const EdgeInsets.only(right: 15.0),
-                  child: Text('See all',
+          Padding(
+            padding: const EdgeInsets.only(left: 15.0),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text('Taste of the week',
                       style: GoogleFonts.varela(
-                          fontSize: 17.0, color: Color(0xFFCEC7C4))),
-                ),
-              ]),
+                          fontSize: 17.0, color: Color(0xFF473D3A))),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 15.0),
+                    child: Text('See all',
+                        style: GoogleFonts.varela(
+                            fontSize: 17.0, color: Color(0xFFCEC7C4))),
+                  ),
+                ]),
+          ),
           SizedBox(height: 15.0),
           Container(
             height: 410.0,
@@ -100,9 +108,12 @@ class _mainCoffeePageState extends State<mainCoffeePage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text('Explore nearby',
-                  style: GoogleFonts.varela(
-                      fontSize: 17.0, color: Color(0xFF473D3A))),
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0),
+                child: Text('Explore nearby',
+                    style: GoogleFonts.varela(
+                        fontSize: 17.0, color: Color(0xFF473D3A))),
+              ),
               Padding(
                 padding: const EdgeInsets.only(right: 15.0),
                 child: Text(
@@ -121,6 +132,9 @@ class _mainCoffeePageState extends State<mainCoffeePage> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
+                SizedBox(
+                  width: 15.0,
+                ),
                 _buildImage('assets/coffee.jpg'),
                 _buildImage('assets/coffee2.jpg'),
                 _buildImage('assets/coffee3.jpg')
@@ -251,9 +265,7 @@ class _mainCoffeePageState extends State<mainCoffeePage> {
                     width: 100.0,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                      image: AssetImage(imgPath),
-                      fit: BoxFit.contain,
-                    )),
+                            image: AssetImage(imgPath), fit: BoxFit.contain)),
                   ),
                 )
               ],
